@@ -1,6 +1,6 @@
 # /reviewdesign — UI/UX Design Review Skill for Claude Code
 
-A professional UI/UX design review skill that analyzes your code, screenshots, or Figma designs and provides actionable feedback based on **50+ evidence-based rules** extracted from 21 video transcripts by top UI/UX designers.
+A professional UI/UX design review skill that analyzes your code, screenshots, or Figma designs and provides actionable feedback based on **60+ evidence-based rules** curated from top UI/UX designers.
 
 ## What it does
 
@@ -108,22 +108,22 @@ Or just:
 
 ## Knowledge base
 
-The skill is backed by a curated knowledge base (`reference.md`) synthesized from 21 YouTube video transcripts by experienced UI/UX designers. Every rule includes how many sources mentioned it (e.g., `[12/21]`).
+The skill is backed by a curated knowledge base (`reference.md`) with 60+ rules covering typography, color systems, spacing, visual hierarchy, components, motion design, UX principles, and common anti-patterns.
 
-**Top 10 most repeated rules:**
+**Top 10 most critical rules:**
 
-| Rule | Sources |
-|------|---------|
-| 60/30/10 color distribution | 12/21 |
-| Visual hierarchy (3 levels) | 10/21 |
-| Contrast & WCAG accessibility | 10/21 |
-| 8-point grid spacing | 9/21 |
-| Max 4 font sizes, 2 weights | 8/21 |
-| White space is active | 8/21 |
-| Clear action-based button labels | 8/21 |
-| Line height ratios | 8/21 |
-| Purposeful animation | 7/21 |
-| Letter spacing by context | 6/21 |
+| Rule | Why it matters |
+|------|---------------|
+| 60/30/10 color distribution | Broken = everything fights for attention |
+| Visual hierarchy (3 levels) | Broken = user can't scan the page |
+| Contrast & WCAG accessibility | Broken = users literally can't read |
+| 8-point grid spacing | Broken = feels "off" and unprofessional |
+| Max 4 font sizes, 2 weights | Broken = messy, inconsistent typography |
+| White space is active | Broken = cramped, overwhelming layout |
+| Clear action-based button labels | Broken = users don't know what happens on click |
+| Line height ratios | Broken = text feels too tight or too loose |
+| Every interaction needs a response | Broken = "did my click work?" anxiety |
+| Letter spacing by context | Missing = headlines look amateur, CTAs get skipped |
 
 ## Key principles
 

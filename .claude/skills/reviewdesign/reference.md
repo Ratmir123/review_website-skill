@@ -101,11 +101,47 @@
 - Purple bg -> purple-tinted shadow, NOT gray.
 - Soft: low opacity, high blur, brand-tinted.
 - Default Figma shadows = amateur.
+- **Realistic shadows**: mix darker+shorter shadow with lighter+longer shadow. Never use single flat shadow.
 
 ### 2.10 Grayscale-First Validation [3/21]
 - Desaturate to test. If hierarchy breaks without color -> design is broken.
 - Color enhances, doesn't carry.
 - Never let AI choose colors [2/21].
+
+### 2.11 Color Format & Palette Construction
+- **Use HSL or OKLCH** instead of hex/RGB — code should make visual sense.
+- HSL: Hue (0-360), Saturation (0-100), Lightness (0-100). Easy math for harmonic shades.
+- **OKLCH** (Tailwind v4 default): more perceptually uniform than HSL, better saturation across lightness range.
+- HSL biggest issue: dark/light shades lose saturation. OKLCH increments look more natural.
+- Create shades by **varying only lightness** while keeping hue+saturation constant.
+- Minimum palette: 3 background shades + 2 text shades + 1 brand + 1 accent = functional UI.
+
+### 2.12 Background Color Hierarchy (Elevation System)
+- **Dark mode**: base 0% lightness, cards/surfaces 5%, raised/important elements 10%.
+- **Light mode**: subtract from 100 (base 100%, cards 95%, raised 90%), then adjust visually.
+- **Lighter = closer to user = more important.** Only use lightest shades for important, raised elements.
+- Name variables by role (BG-dark, BG-light), not by mode — BG-dark is always darkest shade.
+- Light comes from top: lightest surface should be the topmost/raised element.
+
+### 2.13 Text Color Shades
+- **Headings**: high contrast but NOT 100% white in dark mode — too harsh on eyes. Use ~90-95%.
+- **Body/secondary text**: muted shade — still legible, just not in your face.
+- Dark mode: heading ~90% lightness, body ~65-70%.
+- Light mode: heading ~10-15% lightness (dark gray), body ~35-40%.
+- Every text color must serve a hierarchy purpose — no random grays.
+
+### 2.14 Borders, Gradients & Highlights
+- **Border**: clearly visible but not distracting. Match to nearby background shade.
+- **Gradient**: use background color shades for subtle gradients. Reveal full gradient on hover.
+- **Top highlight border**: slightly lighter color on top edge = "light from above" effect. Sells depth.
+- Light mode: border can match background to "blend in" — depth comes from shadow instead.
+- **Hue + saturation on neutrals** = brand personality. Cool+vibrant or warm+neutral — adjust to project.
+
+### 2.15 Personalization & Contextual Color
+- Use color to differentiate user engagement levels (new, returning, power-user).
+- Category screens: **soft monochrome backgrounds + clean isolated images** for instant scanning.
+- Color graphics on category cards help users parse options in seconds.
+- Answers questions before they arise — color as wayfinding, not decoration.
 
 ---
 
@@ -304,7 +340,14 @@
 - Edge cases: long names -> truncate, icons on bright images -> contrast circle.
 - No lorem ipsum.
 
-### 7.3 Affordance [4/21]
+### 7.3 Personalization & Contextual UX
+- Adapt interface to **user engagement level** (new, returning, power-user) — show relevant content, not identical screen for everyone.
+- **Smart search**: recent queries, popular items, personal recommendations under search bar reduce friction.
+- **Input method depends on context**: sliders/wheels for approximate actions, text fields/steppers for precise or repeated tasks.
+- **Order/status tracking** reduces stress: confident messaging, clear delivery details, visual icons, humanizing elements (photos, names), history timeline.
+- Great design **answers questions before they arise** — creates sense of control and confidence.
+
+### 7.4 Affordance & Conventions [4/21]
 - Mental models: account top-right, Escape closes modals, nav at top.
 - Work WITH expectations.
 - "Intuitive" = established patterns + small flair.

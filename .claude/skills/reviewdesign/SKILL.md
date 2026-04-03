@@ -75,20 +75,82 @@ Check against these rules:
 | Font choice | Intentional, modern fonts | Arial, Times New Roman, system defaults |
 | Font pairing | Same world, contrasting roles | Too-similar fonts (Georgia + Times) or clashing |
 
-### 3. COLOR (Impact: HIGH)
+### 3. COLOR (Impact: HIGH — DEEP AUDIT)
+
+Color is the single most impactful visual system. Audit it thoroughly across ALL sub-areas below.
+
+#### 3a. Distribution & Balance
 
 | Rule | Expected | Flag if violated |
 |------|----------|-----------------|
 | 60/30/10 | 60% neutral, 30% brand, 10% accent | Accent color used on large areas |
 | CTA accent | Brand/accent reserved for primary CTA | Multiple elements competing with CTA color |
-| Contrast (WCAG) | 4.5:1 minimum for text | Low contrast text found |
-| Pure black/white | Use dark gray, not #000000 | Pure black for body text |
-| Semantic colors | Red = destructive, green = success | Brand color used for delete buttons |
-| Element states | Hover (lighter), active (darker), disabled (desaturated) | Missing or inconsistent states |
-| Dark mode | NOT inverse of light — separate palette | Simply inverted colors |
-| Shadow colors | Tinted to match background, not gray | Default gray shadows on colored backgrounds |
-| Neutral backgrounds | No bright colors for backgrounds | Saturated background colors |
-| Grayscale test | Design works without color | Hierarchy breaks in grayscale |
+| Neutral backgrounds | No bright/saturated background colors | Saturated bg competes with content |
+| Brand tint on neutrals | Hint of brand hue in gray backgrounds | Pure gray everywhere = sterile, no personality |
+
+#### 3b. Palette Construction & Color Format
+
+| Rule | Expected | Flag if violated |
+|------|----------|-----------------|
+| Color format | HSL or OKLCH — code makes visual sense | Raw hex values with no system (#3a7bc2, #f4f4f4) |
+| Shade system | Shades created by varying lightness only | Random colors with no tonal relationship |
+| Minimum palette | 3 bg shades + 2 text shades + brand + accent | Too few shades (flat) or too many (chaotic) |
+| Brand personality | Hue+saturation on neutrals set the mood | No hue in neutrals = generic, soulless palette |
+
+#### 3c. Background Elevation System
+
+| Rule | Expected | Flag if violated |
+|------|----------|-----------------|
+| Elevation = importance | Lighter/raised = more important elements | All surfaces same shade, no depth hierarchy |
+| Dark mode layers | Base 0%, cards 5%, raised 10% lightness | Single flat background everywhere |
+| Light mode layers | Base lightest, cards slightly darker, raised elements distinct | Cards and bg same shade, no separation |
+| Light direction | Top/raised elements = lightest (light from above) | Random shade assignment, no logic |
+
+#### 3d. Text Color Hierarchy
+
+| Rule | Expected | Flag if violated |
+|------|----------|-----------------|
+| Heading text | High contrast but NOT 100% white (dark mode) — ~90-95% | Pure #ffffff on all headings = harsh |
+| Body text | Muted shade, legible but not in-your-face | Same color as headings = no hierarchy |
+| Pure black/white | Dark gray for text, not #000000 or #ffffff | Pure black body text on white bg |
+| Text shades serve hierarchy | Each shade has a purpose (heading, body, caption, muted) | Random gray values with no system |
+
+#### 3e. Contrast & Accessibility
+
+| Rule | Expected | Flag if violated |
+|------|----------|-----------------|
+| WCAG contrast | 4.5:1 minimum for normal text, 3:1 for large | Low contrast text anywhere |
+| Test across devices | Colors differ on iOS/Android, screens, lighting | Only tested on one display |
+| Grayscale test | Design works without color | Hierarchy breaks when desaturated |
+| Color not sole indicator | Icons/labels/patterns reinforce meaning | Red/green only, no secondary cue |
+
+#### 3f. Semantic & State Colors
+
+| Rule | Expected | Flag if violated |
+|------|----------|-----------------|
+| Semantic colors | Red = destructive, green = success. Always. | Brand color used for delete/error |
+| Element states | Hover (lighter), active (darker), disabled (desat) | Missing hover/active/disabled states |
+| Mobile states | No hover on mobile — press = darker bg | Hover-only interactions on touch devices |
+| State consistency | Same pattern across all interactive elements | Some buttons have hover, others don't |
+
+#### 3g. Borders, Shadows & Depth
+
+| Rule | Expected | Flag if violated |
+|------|----------|-----------------|
+| Shadow realism | Mix: darker+shorter shadow + lighter+longer shadow | Single flat shadow = amateur |
+| Shadow tinting | Shadow color matches bg behind element | Default gray/black shadow on colored bg |
+| Border visibility | Visible but not distracting, matches nearby bg shade | Invisible borders or harsh contrasting borders |
+| Top highlight | Lighter top border = light-from-above effect | Flat borders on all sides |
+| Gradient usage | Subtle bg-color gradients, full reveal on hover | No gradients = flat, or too many = chaos |
+
+#### 3h. Dark Mode (if applicable)
+
+| Rule | Expected | Flag if violated |
+|------|----------|-----------------|
+| Separate palette | Not inverse of light mode | Just flipped colors |
+| Brighter borders | Dark needs bigger differences for separation | Same border values as light mode |
+| Body text | Light gray, NOT pure white | Pure white body text = eye strain |
+| Brand desaturation | Slightly desaturated brand colors | Same saturated brand on dark bg = glare |
 
 ### 4. SPACING & LAYOUT (Impact: HIGH)
 
